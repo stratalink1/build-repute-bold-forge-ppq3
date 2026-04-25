@@ -30,7 +30,7 @@ function initialAgents(): Record<string, AgentState> {
 
 const AGENT_INFO = [
   { name: 'Review Aggregator', purpose: 'Scrapes reviews from listing URLs', key: 'reviewAggregator' },
-  { name: 'JTBD Extractor', purpose: 'Finds patterns in customer language', key: 'jtbdExtractor' },
+  { name: 'Pattern Analysis', purpose: 'Finds patterns in customer language', key: 'jtbdExtractor' },
   { name: 'Copy Generator', purpose: 'Writes website copy from patterns', key: 'copyGenerator' },
   { name: 'Deployment Agent', purpose: 'Builds and deploys the site', key: 'deploymentAgent' },
 ]
