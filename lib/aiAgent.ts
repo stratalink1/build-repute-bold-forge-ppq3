@@ -56,25 +56,6 @@ export interface AIAgentResponse {
   details?: string
 }
 
-export interface UploadedFile {
-  asset_id: string
-  file_name: string
-  success: boolean
-  error?: string
-}
-
-export interface UploadResponse {
-  success: boolean
-  asset_ids: string[]
-  files: UploadedFile[]
-  total_files: number
-  successful_uploads: number
-  failed_uploads: number
-  message: string
-  timestamp: string
-  error?: string
-}
-
 const POLL_TIMEOUT_MS = 5 * 60 * 1000 // 5 minutes
 
 /**
@@ -203,54 +184,6 @@ export async function callAIAgent(
 }
 
 /**
- * Upload files via server-side API route
- */
-export async function uploadFiles(files: File | File[]): Promise<UploadResponse> {
-  const fileArray = Array.isArray(files) ? files : [files]
-
-  if (fileArray.length === 0) {
-    return {
-      success: false,
-      asset_ids: [],
-      files: [],
-      total_files: 0,
-      successful_uploads: 0,
-      failed_uploads: 0,
-      message: 'No files provided',
-      timestamp: new Date().toISOString(),
-      error: 'No files provided',
-    }
-  }
-
-  try {
-    const formData = new FormData()
-    for (const file of fileArray) {
-      formData.append('files', file, file.name)
-    }
-
-    const response = await fetchWrapper('/api/upload', {
-      method: 'POST',
-      body: formData,
-    })
-
-    const data = await response!.json()
-    return data
-  } catch (error) {
-    return {
-      success: false,
-      asset_ids: [],
-      files: [],
-      total_files: fileArray.length,
-      successful_uploads: 0,
-      failed_uploads: fileArray.length,
-      message: 'Network error during upload',
-      timestamp: new Date().toISOString(),
-      error: error instanceof Error ? error.message : String(error),
-    }
-  }
-}
-
-/**
  * React hook for using AI Agent in components
  */
 export function useAIAgent() {
@@ -285,40 +218,6 @@ export function useAIAgent() {
     loading,
     error,
     response,
-  }
-}
-
-/**
- * React hook for file uploads
- */
-export function useFileUpload() {
-  const [uploading, setUploading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [result, setResult] = useState<UploadResponse | null>(null)
-
-  const upload = async (files: File | File[]) => {
-    setUploading(true)
-    setError(null)
-    setResult(null)
-
-    const uploadResult = await uploadFiles(files)
-
-    if (uploadResult.success) {
-      setResult(uploadResult)
-    } else {
-      setError(uploadResult.error || 'Upload failed')
-      setResult(uploadResult)
-    }
-
-    setUploading(false)
-    return uploadResult
-  }
-
-  return {
-    upload,
-    uploading,
-    error,
-    result,
   }
 }
 

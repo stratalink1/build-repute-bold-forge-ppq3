@@ -6,7 +6,7 @@ import Header from './sections/Header'
 import Hero from './sections/Hero'
 import AgentPanel from './sections/AgentPanel'
 import type { AgentState, AgentStatus } from './sections/AgentPanel'
-import ShowcaseGrid from './sections/ShowcaseGrid'
+import TemplateShowcase from './sections/TemplateShowcase'
 import RegionalMap from './sections/RegionalMap'
 import Footer from './sections/Footer'
 
@@ -658,7 +658,7 @@ export default function PageClient() {
           />
         </div>
 
-        <ShowcaseGrid />
+        <TemplateShowcase />
         <RegionalMap />
         <Footer />
       </div>
