@@ -1,0 +1,50 @@
+{
+  "agent_name": "Copy Generator",
+  "agent_id": "69ec79d6b4c5ebc92bce100a",
+  "description": "Website copywriter specializing in customer-truth voice that generates structured website copy for a one-page business site using JTBD patterns as the foundation.",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "result": {
+      "hero_headline": "string",
+      "hero_subtitle": "string",
+      "value_props": [
+        {
+          "title": "string",
+          "body": "string"
+        }
+      ],
+      "social_proof": [
+        {
+          "quote": "string",
+          "reviewer_name": "string"
+        }
+      ],
+      "cta_text": "string",
+      "meta_title": "string",
+      "meta_description": "string"
+    }
+  },
+  "example_response": {
+    "result": {
+      "hero_headline": "sample string",
+      "hero_subtitle": "sample string",
+      "value_props": [
+        {
+          "title": "sample string",
+          "body": "sample string"
+        }
+      ],
+      "social_proof": [
+        {
+          "quote": "sample string",
+          "reviewer_name": "sample string"
+        }
+      ],
+      "cta_text": "sample string",
+      "meta_title": "sample string",
+      "meta_description": "sample string"
+    }
+  }
+}

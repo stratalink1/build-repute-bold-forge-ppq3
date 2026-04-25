@@ -1,0 +1,46 @@
+{
+  "agent_name": "Review Aggregator",
+  "agent_id": "69ec79b5c0e9cbb13825fcbf",
+  "description": "Web scraping and review data extraction specialist that scrapes business reviews from Google Maps, Zomato, JustDial, or Practo URLs and extracts structured business and review data.",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "result": {
+      "business_name": "string",
+      "category": "string",
+      "city": "string",
+      "country": "string",
+      "average_rating": "number",
+      "total_review_count": "number",
+      "reviews": [
+        {
+          "text": "string",
+          "rating": "number",
+          "date": "string",
+          "reviewer_name": "string"
+        }
+      ],
+      "error": "string"
+    }
+  },
+  "example_response": {
+    "result": {
+      "business_name": "sample string",
+      "category": "sample string",
+      "city": "sample string",
+      "country": "sample string",
+      "average_rating": 0,
+      "total_review_count": 0,
+      "reviews": [
+        {
+          "text": "sample string",
+          "rating": 0,
+          "date": "sample string",
+          "reviewer_name": "sample string"
+        }
+      ],
+      "error": "sample string"
+    }
+  }
+}

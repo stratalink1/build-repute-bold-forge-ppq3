@@ -1,0 +1,32 @@
+{
+  "agent_name": "JTBD Pattern Extractor",
+  "agent_id": "69ec79d69b080e9c2b046fa1",
+  "description": "Jobs To Be Done research analyst that analyzes customer reviews to identify specific, concrete reasons customers choose a business.",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "result": {
+      "patterns": [
+        {
+          "pattern_text": "string",
+          "supporting_review_count": "number",
+          "representative_quote": "string"
+        }
+      ],
+      "total_patterns_found": "number"
+    }
+  },
+  "example_response": {
+    "result": {
+      "patterns": [
+        {
+          "pattern_text": "sample string",
+          "supporting_review_count": 0,
+          "representative_quote": "sample string"
+        }
+      ],
+      "total_patterns_found": 0
+    }
+  }
+}
