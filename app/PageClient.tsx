@@ -599,46 +599,48 @@ export default function PageClient() {
         <Header />
         <Hero url={url} setUrl={setUrl} onSubmit={handleSubmit} isRunning={isRunning} />
 
-        {/* Four-agent strip - directly under hero */}
-        <div className="px-5 md:px-10 pb-8">
-          <div className="mx-auto" style={{ maxWidth: 1360 }}>
-            <div
-              className="p-4"
-              style={{
-                background: 'rgba(255,255,255,0.78)',
-                backdropFilter: 'blur(18px)',
-                border: '1px solid rgba(104,92,74,0.18)',
-                borderRadius: 16,
-              }}
-            >
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 500, color: 'rgba(0,0,0,0.42)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>
-                Powered by 4 agents
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
-                {AGENT_INFO.map((a) => {
-                  const st = agents[a.key]?.status ?? 'pending'
-                  return (
-                    <div key={a.key} className="flex items-start gap-2">
-                      <div
-                        className="mt-1 flex-shrink-0"
-                        style={{
-                          width: 8,
-                          height: 8,
-                          borderRadius: '50%',
-                          background: st === 'running' ? '#E07856' : st === 'complete' ? '#3A7D44' : st === 'failed' ? '#E07856' : 'rgba(0,0,0,0.2)',
-                        }}
-                      />
-                      <div>
-                        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 500, color: '#1A1A1A' }}>{a.name}</div>
-                        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, color: 'rgba(0,0,0,0.42)' }}>{a.purpose}</div>
+        {/* Four-agent strip — only visible while pipeline is running */}
+        {panelVisible && (
+          <div className="px-5 md:px-10 pb-8">
+            <div className="mx-auto" style={{ maxWidth: 1360 }}>
+              <div
+                className="p-4"
+                style={{
+                  background: 'rgba(255,255,255,0.78)',
+                  backdropFilter: 'blur(18px)',
+                  border: '1px solid rgba(104,92,74,0.18)',
+                  borderRadius: 16,
+                }}
+              >
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 500, color: 'rgba(0,0,0,0.42)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>
+                  Powered by 4 agents
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+                  {AGENT_INFO.map((a) => {
+                    const st = agents[a.key]?.status ?? 'pending'
+                    return (
+                      <div key={a.key} className="flex items-start gap-2">
+                        <div
+                          className="mt-1 flex-shrink-0"
+                          style={{
+                            width: 8,
+                            height: 8,
+                            borderRadius: '50%',
+                            background: st === 'running' ? '#E07856' : st === 'complete' ? '#3A7D44' : st === 'failed' ? '#E07856' : 'rgba(0,0,0,0.2)',
+                          }}
+                        />
+                        <div>
+                          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 500, color: '#1A1A1A' }}>{a.name}</div>
+                          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, color: 'rgba(0,0,0,0.42)' }}>{a.purpose}</div>
+                        </div>
                       </div>
-                    </div>
-                  )
-                })}
+                    )
+                  })}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Agent execution panel */}
         <div ref={panelRef}>
@@ -658,8 +660,107 @@ export default function PageClient() {
           />
         </div>
 
+        {/* Examples + proof — two-column split, hidden while pipeline runs */}
+        {!panelVisible && (
+          <section className="px-5 md:px-10 py-16 md:py-24">
+            <div className="mx-auto" style={{ maxWidth: 1120 }}>
+              <div className="flex flex-col md:flex-row gap-12 md:gap-16">
+
+                {/* Left: example sites */}
+                <div style={{ flex: '1 1 55%' }}>
+                  <h2
+                    className="mb-2"
+                    style={{
+                      fontFamily: 'var(--font-lora), Georgia, serif',
+                      fontWeight: 500,
+                      fontSize: 22,
+                      color: 'rgba(0,0,0,0.9)',
+                      letterSpacing: -0.4,
+                    }}
+                  >
+                    Sites Repute has generated
+                  </h2>
+                  <p className="mb-8" style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, color: 'rgba(0,0,0,0.5)', lineHeight: 1.5 }}>
+                    Each one built from what customers wrote, not what the owner wanted to say.
+                  </p>
+                  <div className="flex flex-col gap-3">
+                    {[
+                      { business: 'Sharma Sweets', city: 'Mumbai, India', tagline: 'The mawa jalebi people queue for at 7am', accent: '#E8A000' },
+                      { business: 'Wellness Dental', city: 'Bengaluru, India', tagline: 'The dentist who explains every step before doing it', accent: '#E07856' },
+                      { business: 'Hyderabad UPSC Academy', city: 'Hyderabad, India', tagline: 'The prelims strategy students keep coming back for', accent: '#7A9E7E' },
+                    ].map((s) => (
+                      <div
+                        key={s.business}
+                        className="flex items-center gap-4 p-4"
+                        style={{
+                          background: 'white',
+                          borderRadius: 12,
+                          border: '1px solid rgba(0,0,0,0.07)',
+                        }}
+                      >
+                        <div
+                          style={{
+                            width: 40,
+                            height: 40,
+                            borderRadius: 8,
+                            background: s.accent,
+                            flexShrink: 0,
+                            opacity: 0.18,
+                          }}
+                        />
+                        <div style={{ minWidth: 0 }}>
+                          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 600, color: '#1A1A1A' }}>{s.business}</div>
+                          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, color: 'rgba(0,0,0,0.5)', marginTop: 1 }}>{s.tagline}</div>
+                          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, color: 'rgba(0,0,0,0.35)', marginTop: 2 }}>{s.city}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right: regional proof */}
+                <div style={{ flex: '1 1 40%' }} className="flex flex-col justify-center">
+                  <h2
+                    className="mb-2"
+                    style={{
+                      fontFamily: 'var(--font-lora), Georgia, serif',
+                      fontWeight: 500,
+                      fontSize: 22,
+                      color: 'rgba(0,0,0,0.9)',
+                      letterSpacing: -0.4,
+                    }}
+                  >
+                    Live across 8 cities
+                  </h2>
+                  <p className="mb-8" style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, color: 'rgba(0,0,0,0.5)', lineHeight: 1.5 }}>
+                    India, MENA, and Turkey. Works with Google Maps, Zomato, JustDial, Practo, and more.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {['Mumbai', 'Bengaluru', 'Pune', 'Hyderabad', 'Jaipur', 'Dubai', 'Riyadh', 'Istanbul'].map((city) => (
+                      <span
+                        key={city}
+                        style={{
+                          fontFamily: 'Inter, sans-serif',
+                          fontSize: 13,
+                          color: 'rgba(0,0,0,0.65)',
+                          background: 'white',
+                          border: '1px solid rgba(0,0,0,0.1)',
+                          borderRadius: 100,
+                          padding: '4px 12px',
+                        }}
+                      >
+                        {city}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+        )}
+
         <TemplateShowcase />
-        <RegionalMap />
         <Footer />
       </div>
     </ErrorBoundary>
