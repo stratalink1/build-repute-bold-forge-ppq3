@@ -8,10 +8,18 @@ interface HeroProps {
   setUrl: (url: string) => void
   onSubmit: (url: string) => void
   isRunning: boolean
+  mode?: 'public' | 'authed'
 }
 
-export default function Hero({ url, setUrl, onSubmit, isRunning }: HeroProps) {
+export default function Hero({ url, setUrl, onSubmit, isRunning, mode = 'authed' }: HeroProps) {
   const [error, setError] = useState('')
+  const isPublic = mode === 'public'
+  const ctaLabel = isRunning
+    ? (isPublic ? 'Reading your reviews...' : 'Generating...')
+    : (isPublic ? 'See what your reviews reveal' : 'Generate my website')
+  const helperText = isPublic
+    ? 'Free preview. No credit card. We read your reviews and show you the patterns before you sign up.'
+    : 'Works with Google Maps, Zomato, JustDial, Practo, and more.'
 
   const handleSubmit = () => {
     const trimmed = url.trim()
@@ -43,7 +51,7 @@ export default function Hero({ url, setUrl, onSubmit, isRunning }: HeroProps) {
           }}
           className="text-3xl md:text-5xl lg:text-[56px] mb-6"
         >
-          Show why exactly customers come back
+          Your website, written by your customers
         </h1>
 
         {/* Sub-copy - single line */}
@@ -57,7 +65,7 @@ export default function Hero({ url, setUrl, onSubmit, isRunning }: HeroProps) {
             margin: '0 auto 40px',
           }}
         >
-          Repute reads what your customers wrote on Google, Zomato, JustDial, and Practo, finds the patterns, and turns them into your website.
+          Your customers already wrote what makes you worth choosing. Repute reads their reviews, finds the patterns, and turns them into a one-page site in their words, not yours.
         </p>
 
         {/* Form */}
@@ -113,13 +121,13 @@ export default function Hero({ url, setUrl, onSubmit, isRunning }: HeroProps) {
                 whiteSpace: 'nowrap',
               }}
             >
-              {isRunning ? 'Generating...' : 'Generate A Website'}
+              {ctaLabel}
               {!isRunning && <HiArrowRight size={16} />}
             </button>
           </div>
 
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, color: '#888', marginTop: 12, textAlign: 'center' }}>
-            Works with Google Maps, Zomato, JustDial, Practo, and more
+            {helperText}
           </p>
 
           {error && (
