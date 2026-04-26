@@ -662,7 +662,7 @@ export default function PageClient() {
 
         {/* Examples + proof — two-column split, hidden while pipeline runs */}
         {!panelVisible && (
-          <section className="px-5 md:px-10 py-16 md:py-24">
+          <section className="px-5 md:px-10 pt-0 pb-16 md:pb-24">
             <div className="mx-auto" style={{ maxWidth: 1120 }}>
               <div className="flex flex-col md:flex-row gap-12 md:gap-16">
 
