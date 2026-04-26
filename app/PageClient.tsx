@@ -718,43 +718,6 @@ export default function PageClient() {
                   </div>
                 </div>
 
-                {/* Right: regional proof */}
-                <div style={{ flex: '1 1 40%' }} className="flex flex-col justify-center">
-                  <h2
-                    className="mb-2"
-                    style={{
-                      fontFamily: 'var(--font-lora), Georgia, serif',
-                      fontWeight: 500,
-                      fontSize: 22,
-                      color: 'rgba(0,0,0,0.9)',
-                      letterSpacing: -0.4,
-                    }}
-                  >
-                    Live across 8 cities
-                  </h2>
-                  <p className="mb-8" style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, color: 'rgba(0,0,0,0.5)', lineHeight: 1.5 }}>
-                    India, MENA, and Turkey. Works with Google Maps, Zomato, JustDial, Practo, and more.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {['Mumbai', 'Bengaluru', 'Pune', 'Hyderabad', 'Jaipur', 'Dubai', 'Riyadh', 'Istanbul'].map((city) => (
-                      <span
-                        key={city}
-                        style={{
-                          fontFamily: 'Inter, sans-serif',
-                          fontSize: 13,
-                          color: 'rgba(0,0,0,0.65)',
-                          background: 'white',
-                          border: '1px solid rgba(0,0,0,0.1)',
-                          borderRadius: 100,
-                          padding: '4px 12px',
-                        }}
-                      >
-                        {city}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
               </div>
             </div>
           </section>
