@@ -1,0 +1,54 @@
+{
+  "status": "complete",
+  "agents": {
+    "review_aggregator": {
+      "agent_id": "69ec79b5c0e9cbb13825fcbf",
+      "name": "Review Aggregator",
+      "status": "created",
+      "provider": "openai",
+      "model": "gpt-4.1",
+      "temperature": 0.3,
+      "top_p": 0.9
+    },
+    "jtbd_extractor": {
+      "agent_id": "69ec79d69b080e9c2b046fa1",
+      "name": "JTBD Pattern Extractor",
+      "status": "created",
+      "provider": "openai",
+      "model": "gpt-4.1",
+      "temperature": 0.4,
+      "top_p": 0.9
+    },
+    "copy_generator": {
+      "agent_id": "69ec79d6b4c5ebc92bce100a",
+      "name": "Copy Generator",
+      "status": "created",
+      "provider": "openai",
+      "model": "gpt-4.1",
+      "temperature": 0.5,
+      "top_p": 0.9
+    },
+    "deployment_agent": {
+      "agent_id": "69ec79e9e36384f4e7472f90",
+      "name": "Deployment Agent",
+      "status": "created",
+      "provider": "openai",
+      "model": "gpt-4.1",
+      "temperature": 0.3,
+      "top_p": 0.9
+    }
+  },
+  "agent_ids": [
+    "69ec79b5c0e9cbb13825fcbf",
+    "69ec79d69b080e9c2b046fa1",
+    "69ec79d6b4c5ebc92bce100a",
+    "69ec79e9e36384f4e7472f90"
+  ],
+  "database": {
+    "db_name": "app_c0a6f0e6e5c8bf3bec1d3595",
+    "collections": ["users", "generated_sites", "review_data"],
+    "status": "provisioned"
+  },
+  "rag_ids": {},
+  "schedule_ids": {}
+}

@@ -1,0 +1,67 @@
+{
+  "workflow": {
+    "name": "Repute - Reviews to Website",
+    "description": "Turns local business online reviews into a live one-page website in under 60 seconds",
+    "nodes": [
+      {"id": "input_node", "type": "Input", "label": "Business Review URL", "nodeCategory": "input"},
+      {"id": "review_aggregator", "type": "Agent", "label": "Review Aggregator", "nodeCategory": "agent"},
+      {"id": "jtbd_extractor", "type": "Agent", "label": "JTBD Pattern Extractor", "nodeCategory": "agent"},
+      {"id": "copy_generator", "type": "Agent", "label": "Copy Generator", "nodeCategory": "agent"},
+      {"id": "deployment_agent", "type": "Agent", "label": "Deployment Agent", "nodeCategory": "agent"},
+      {"id": "output_node", "type": "Output", "label": "Live Website", "nodeCategory": "end"}
+    ],
+    "edges": [
+      {"source": "input_node", "target": "review_aggregator"},
+      {"source": "review_aggregator", "target": "jtbd_extractor"},
+      {"source": "jtbd_extractor", "target": "copy_generator"},
+      {"source": "copy_generator", "target": "deployment_agent"},
+      {"source": "deployment_agent", "target": "output_node"}
+    ]
+  },
+  "agents": [
+    {
+      "node_id": "review_aggregator",
+      "agent_id": "69ec79b5c0e9cbb13825fcbf",
+      "name": "Review Aggregator",
+      "model": "gpt-4.1",
+      "provider_id": "openai",
+      "temperature": 0.3,
+      "top_p": 0.9,
+      "tools": ["PERPLEXITY_SEARCH"],
+      "capabilities": {"image_output": false, "voice": false, "file_output": false}
+    },
+    {
+      "node_id": "jtbd_extractor",
+      "agent_id": "69ec79d69b080e9c2b046fa1",
+      "name": "JTBD Pattern Extractor",
+      "model": "gpt-4.1",
+      "provider_id": "openai",
+      "temperature": 0.4,
+      "top_p": 0.9,
+      "tools": [],
+      "capabilities": {"image_output": false, "voice": false, "file_output": false}
+    },
+    {
+      "node_id": "copy_generator",
+      "agent_id": "69ec79d6b4c5ebc92bce100a",
+      "name": "Copy Generator",
+      "model": "gpt-4.1",
+      "provider_id": "openai",
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "tools": [],
+      "capabilities": {"image_output": false, "voice": false, "file_output": false}
+    },
+    {
+      "node_id": "deployment_agent",
+      "agent_id": "69ec79e9e36384f4e7472f90",
+      "name": "Deployment Agent",
+      "model": "gpt-4.1",
+      "provider_id": "openai",
+      "temperature": 0.3,
+      "top_p": 0.9,
+      "tools": [],
+      "capabilities": {"image_output": false, "voice": false, "file_output": false}
+    }
+  ]
+}

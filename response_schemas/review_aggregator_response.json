@@ -1,0 +1,74 @@
+{
+  "agent_name": "Review Aggregator",
+  "agent_id": "69ec79b5c0e9cbb13825fcbf",
+  "description": "Web scraping and review data extraction specialist that scrapes business reviews and complete business information from Google Maps, Zomato, JustDial, or Practo URLs.",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "result": {
+      "business_name": "string",
+      "category": "string",
+      "city": "string",
+      "country": "string",
+      "business_address": "string",
+      "phone_number": "string",
+      "website_url": "string",
+      "business_hours": [
+        {
+          "day": "string",
+          "hours": "string"
+        }
+      ],
+      "photo_urls": ["string"],
+      "popular_items": [
+        {
+          "name": "string",
+          "mentions": "number"
+        }
+      ],
+      "average_rating": "number",
+      "total_review_count": "number",
+      "reviews": [
+        {
+          "text": "string",
+          "rating": "number",
+          "date": "string",
+          "reviewer_name": "string"
+        }
+      ],
+      "error": "string"
+    }
+  },
+  "example_response": {
+    "result": {
+      "business_name": "Tartine Bakery",
+      "category": "Bakery",
+      "city": "San Francisco",
+      "country": "United States",
+      "business_address": "600 Guerrero St, San Francisco, CA 94110",
+      "phone_number": "(415) 487-2600",
+      "website_url": "https://tartinebakery.com",
+      "business_hours": [
+        { "day": "Monday", "hours": "7:30 AM - 7:00 PM" },
+        { "day": "Tuesday", "hours": "7:30 AM - 7:00 PM" }
+      ],
+      "photo_urls": [],
+      "popular_items": [
+        { "name": "Morning Bun", "mentions": 15 },
+        { "name": "Croissant", "mentions": 12 }
+      ],
+      "average_rating": 4.5,
+      "total_review_count": 4200,
+      "reviews": [
+        {
+          "text": "The morning bun is absolutely divine!",
+          "rating": 5,
+          "date": "2024-03-15",
+          "reviewer_name": "Sarah M."
+        }
+      ],
+      "error": ""
+    }
+  }
+}

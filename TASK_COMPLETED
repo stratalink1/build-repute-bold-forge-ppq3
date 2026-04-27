@@ -1,0 +1,8 @@
+COMPLETED: Updated website generator to follow tartine-bakery.brila.ai template design.
+
+Changes made:
+1. PageClient.tsx - Rewrote generateFallbackHtml() with tartine-bakery template design
+2. Review Aggregator agent - Updated to extract address, phone, hours, photos, popular items
+3. Copy Generator agent - Updated to produce blockquotes, customer tips, secondary CTAs
+4. Deployment Agent - Updated instructions to follow tartine-bakery template exactly
+5. Response schemas updated for all agents

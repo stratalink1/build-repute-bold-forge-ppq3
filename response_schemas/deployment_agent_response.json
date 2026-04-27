@@ -1,0 +1,26 @@
+{
+  "agent_name": "Deployment Agent",
+  "agent_id": "69ec79e9e36384f4e7472f90",
+  "description": "Website builder and deployment specialist that generates a slug, renders copy into a one-page HTML template using Repute's design system, and prepares for deployment.",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "result": {
+      "live_url": "string",
+      "slug": "string",
+      "deployed_at": "string",
+      "html_content": "string",
+      "site_title": "string"
+    }
+  },
+  "example_response": {
+    "result": {
+      "live_url": "sample string",
+      "slug": "sample string",
+      "deployed_at": "sample string",
+      "html_content": "sample string",
+      "site_title": "sample string"
+    }
+  }
+}

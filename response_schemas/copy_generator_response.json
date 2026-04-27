@@ -1,0 +1,68 @@
+{
+  "agent_name": "Copy Generator",
+  "agent_id": "69ec79d6b4c5ebc92bce100a",
+  "description": "Website copywriter that generates structured website copy for a one-page business site following the Tartine Bakery template design, using JTBD patterns and real customer language.",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "result": {
+      "hero_headline": "string",
+      "hero_subtitle": "string",
+      "value_props": [
+        {
+          "title": "string",
+          "body": "string",
+          "blockquote": "string",
+          "citation": "string"
+        }
+      ],
+      "social_proof": [
+        {
+          "quote": "string",
+          "reviewer_name": "string"
+        }
+      ],
+      "customer_tips": [
+        {
+          "title": "string",
+          "body": "string"
+        }
+      ],
+      "cta_text": "string",
+      "secondary_cta": "string",
+      "meta_title": "string",
+      "meta_description": "string"
+    }
+  },
+  "example_response": {
+    "result": {
+      "hero_headline": "European-Style Bakery with 48-Hour Fermented Dough",
+      "hero_subtitle": "Where morning buns and croissants are made with real French butter and love.",
+      "value_props": [
+        {
+          "title": "48-Hour Fermented Dough",
+          "body": "Every loaf starts with a 48-hour fermentation process that develops deep, complex flavors.",
+          "blockquote": "The sourdough here has a depth of flavor I've never found anywhere else.",
+          "citation": "Sarah M."
+        }
+      ],
+      "social_proof": [
+        {
+          "quote": "The morning bun is absolutely divine - worth waiting in line for!",
+          "reviewer_name": "John D."
+        }
+      ],
+      "customer_tips": [
+        {
+          "title": "Get There Early",
+          "body": "Morning buns sell out by 10am. Arrive before 8am for the best selection."
+        }
+      ],
+      "cta_text": "Visit Us Today",
+      "secondary_cta": "See the Menu",
+      "meta_title": "Tartine Bakery - European-Style Bakery in San Francisco",
+      "meta_description": "Discover why customers keep coming back to Tartine Bakery for morning buns, croissants, and artisan bread."
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "agent_name": "Website Generator Agent",
+  "agent_id": "69ec6af9e4dac465692d63e2",
+  "description": "Operates in dual mode. Demo mode: uses 3 pre-loaded Bengaluru business review datasets embedded in agent instructions to perform real JTBD analysis and generate unique website content. Live mode: when Google Places API custom tool is configured, fetches real business data, reviews, and photos; falls back to demo mode on failure. In both modes, performs Jobs-to-Be-Done analysis on the review corpus to identify top 3 customer reasons-to-choose, extracts direct quotes and recurring details, and outputs structured JSON matching the defined schema. Handles error states for low reviews, invalid URLs, and API failures.",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "status": "string",
+    "data_source": "string",
+    "error_type": "string",
+    "message": "string",
+    "business_name": "string",
+    "business_address": "string",
+    "average_rating": "number",
+    "review_count": "number",
+    "hero_headline": "string",
+    "hero_subheadline": "string",
+    "jtbd_reasons": [
+      {
+        "title": "string",
+        "body": "string",
+        "supporting_quote": "string",
+        "quote_author": "string"
+      }
+    ],
+    "top_quotes": [
+      {
+        "text": "string",
+        "author": "string"
+      }
+    ],
+    "primary_cta_text": "string",
+    "meta_description": "string",
+    "photos": [
+      "string"
+    ]
+  },
+  "example_response": {
+    "status": "success or error",
+    "data_source": "demo or live",
+    "error_type": "low_reviews, invalid_url, or empty string",
+    "message": "Error message or empty string",
+    "business_name": "sample string",
+    "business_address": "sample string",
+    "average_rating": 0,
+    "review_count": 0,
+    "hero_headline": "sample string",
+    "hero_subheadline": "sample string",
+    "jtbd_reasons": [
+      {
+        "title": "sample string",
+        "body": "sample string",
+        "supporting_quote": "sample string",
+        "quote_author": "sample string"
+      }
+    ],
+    "top_quotes": [
+      {
+        "text": "sample string",
+        "author": "sample string"
+      }
+    ],
+    "primary_cta_text": "sample string",
+    "meta_description": "sample string",
+    "photos": [
+      "sample string"
+    ]
+  }
+}
